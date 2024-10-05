@@ -7,7 +7,7 @@ import yaml from 'yaml'
 
 
 //        『咕咕牛🐂』图库管理器 v2.8
-//        Github仓库地址：https://github.com/GuGuNiu/Miao-Plugin-MBT/
+//        Github仓库地址：https://github.com/T060925ZX/Miao-Plugin-MBT/
 
 
 function formatBytes(bytes) {
@@ -98,7 +98,7 @@ export class MiaoPluginMBT extends plugin {
         const currentFileUrl = import.meta.url;
         const currentFilePath = fileURLToPath(currentFileUrl);
         this.proxy = 'https://mirror.ghproxy.com/';  
-        this.repositoryUrl = 'https://github.com/GuGuNiu/Miao-Plugin-MBT/';
+        this.repositoryUrl = 'https://github.com/T060925ZX/Miao-Plugin-MBT/';
 
         this.localPath = path.resolve(path.dirname(currentFilePath), '../../resources/Miao-Plugin-MBT/');
         this.GitPath = path.resolve(path.dirname(currentFilePath), '../../resources/Miao-Plugin-MBT/.git/');
