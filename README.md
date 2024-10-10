@@ -18,9 +18,9 @@
 ## 制图进度
 【[Miao-Plugin](https://github.com/yoimiya-kokomi/miao-plugin)】原神：1.0-5.1
 
-【[Miao-Plugin](https://github.com/yoimiya-kokomi/miao-plugin)】星穹铁道：1.0-2.6
+【[Miao-Plugin](https://github.com/yoimiya-kokomi/miao-plugin)】星穹铁道：1.0-2.6（跑路）
 
-【[ZZZ-Plugin](https://github.com/ZZZure/ZZZ-Plugin/)】 绝区零：1.1
+【[ZZZ-Plugin](https://github.com/ZZZure/ZZZ-Plugin/)】 绝区零：1.1（跑路）
 
 ## 快速安装
 
