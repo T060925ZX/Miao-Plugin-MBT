@@ -1,5 +1,6 @@
 ![界面.png](https://s2.loli.net/2024/03/09/ZGNrwVyPDbOx9Bf.png)
 
+>本图库由 [咕咕牛图库](https://github.com/GuGuNiu/Miao-Plugin-MBT) Fork，仅更新原神背景图
 
 ## 限制级说明 🚨
   图库仅限制在R17+级别的图片，小部分图可能含有明显的『<ins>性暗示</ins>』
