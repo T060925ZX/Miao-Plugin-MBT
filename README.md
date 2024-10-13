@@ -1,8 +1,9 @@
 ![界面.png](https://s2.loli.net/2024/03/09/ZGNrwVyPDbOx9Bf.png)
 
+ - ## 咕咕牛插件交流群 [541572746](https://qm.qq.com/q/8RKeSngoO4)
+
 >本图库由 [咕咕牛图库](https://github.com/GuGuNiu/Miao-Plugin-MBT) Fork，仅更新原神背景图
 
-> 交流群 [983299064](https://qm.qq.com/q/ciLUvOjDyw) 
 - 使用本插件请先删除原有咕咕牛图库 `resources/Miao-Plugin-MBT` 或 `#重置咕咕牛`
 
 ## 限制级说明 🚨
@@ -62,4 +63,14 @@ ZZZ-Plugin ：https://github.com/ZZZure/ZZZ-Plugin/
   
 </div>
 
+### 鸣谢
+###### ***不分先后顺序***
 
+
+| 名单 | 主要贡献 | 名单  | 主要贡献  |
+|:----: |:----: |:----: |:----: |
+| [@fl12352](https://github.com/fl12352) | xxxx | [@sgsjsh](https://github.com/sgsjsh) | xxxxx  |
+
+
+
+>Yunzai交流群 [983299064](https://qm.qq.com/q/ciLUvOjDyw) 
