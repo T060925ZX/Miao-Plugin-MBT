@@ -58,7 +58,7 @@ ZZZ-Plugin ：https://github.com/ZZZure/ZZZ-Plugin/
 
 <div align="left"> 
   
-  [![访问量](https://profile-counter.glitch.me/Miao-Plugin-MBT/count.svg)](https://github.com/T060925ZX/Miao-Plugin-MBT)
+![Visitor Count](https://profile-counter.glitch.me/T060925ZX/count.svg)
   
 </div>
 
