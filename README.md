@@ -63,13 +63,13 @@ ZZZ-Plugin ：https://github.com/ZZZure/ZZZ-Plugin/
   
 </div>
 
-### 鸣谢
+### 感谢那些默默付出的人
 ###### ***不分先后顺序***
 
 
 | 名单 | 主要贡献 | 名单  | 主要贡献  |
 |:----: |:----: |:----: |:----: |
-| [@fl12352](https://github.com/fl12352) | xxxx | [@sgsjsh](https://github.com/sgsjsh) | xxxxx  |
+| [@fl12352](https://github.com/fl12352) | 原神面板图 | [@sgsjsh](https://github.com/sgsjsh) | 星铁面板图  |
 
 
 
