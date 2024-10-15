@@ -6,7 +6,7 @@ import common from '../../lib/common/common.js';
 import yaml from 'yaml'
 
 
-//        『咕咕牛🐂』图库管理器 v2.8
+//        『云雀🐦』图库管理器 v2.8
 //        Github仓库地址：https://github.com/T060925ZX/Miao-Plugin-MBT/
 
 
@@ -21,26 +21,26 @@ function formatBytes(bytes) {
 export class MiaoPluginMBT extends plugin {
     constructor() {
         super({
-            name: '『咕咕牛🐂』图库管理器 v2.8',
-            dsc: '『咕咕牛🐂』图库管理器',
+            name: '『云雀🐦』图库管理器 v1.0',
+            dsc: '『云雀🐦』图库管理器',
             event: 'message',
             priority: 1000,
             rule: [
                 {
-                    reg: /^#(代理)?下载咕咕牛$/,
+                    reg: /^#(代理)?下载云雀$/,
                     fnc: 'GallaryDownload'
                 },
                 {
-                    reg: /^#(强制)?更新咕咕牛$/,
+                    reg: /^#(强制)?更新云雀$/,
                     fnc: 'GallaryUpdate'
                 },
                 {
-                    reg: /^#删除咕咕牛$/,
+                    reg: /^#删除云雀$/,
                     fnc: 'DeleteGallary',
                     permission: "master"
                 },
                 {
-                    reg: /^#(启用|禁用)咕咕牛$/,
+                    reg: /^#(启用|禁用)云雀$/,
                     fnc: 'GalleryOption',
                     permission: "master"
                 },
@@ -50,16 +50,16 @@ export class MiaoPluginMBT extends plugin {
                     permission: "master"
                 },
                 {
-                    reg: /^#咕咕牛帮助$/,
+                    reg: /^#云雀帮助$/,
                     fnc: 'GuHelp'
                 },
                 {
-                    reg: /^#重置咕咕牛$/,
+                    reg: /^#重置云雀$/,
                     fnc: 'RestartGuGuNiu',
                     permission: "master"
                 },
                 {
-                    reg: /^#检查咕咕牛$/,
+                    reg: /^#检查云雀$/,
                     fnc: 'CheckFolder'
                 },           
                 {     
@@ -76,21 +76,21 @@ export class MiaoPluginMBT extends plugin {
                     fnc: 'BanRolelist',
                 },
                 {     
-                    reg: /^#(确认)?净化咕咕牛$/,
+                    reg: /^#(确认)?净化云雀$/,
                     fnc: 'RemoveBadimages',
                 },
                 {     
-                    reg: /^#咕咕牛$/,
+                    reg: /^#云雀$/,
                     fnc: 'GuGuNiu',
                 },
                 {     
-                    reg: /^#清理咕咕牛缓存$/,
+                    reg: /^#清理云雀缓存$/,
                     fnc: 'CC',
                 }
             ]
         })
         this.task = {
-            name: '『咕咕牛🐂』定时更新任务',
+            name: '『云雀🐦』定时更新任务',
             cron: '0 5 */15 * *',
             fnc: () => this.executeTask(),
             log: false
@@ -117,14 +117,14 @@ export class MiaoPluginMBT extends plugin {
     }
     async GallaryDownload(e) {
         let downloadUrl;
-        if (e.msg == '#下载咕咕牛') {
+        if (e.msg == '#下载云雀') {
             downloadUrl = this.repositoryUrl;
-        } else if (e.msg == '#代理下载咕咕牛') {
+        } else if (e.msg == '#代理下载云雀🐦') {
             downloadUrl = this.proxy + this.repositoryUrl;
         }
-        await e.reply('『咕咕牛🐂』开始下载了', true);
+        await e.reply('『云雀🐦』开始下载了', true);
         if (fs.existsSync(this.localPath)) {
-            await e.reply('『咕咕牛』已存在，请勿重复下载！如有异常请手动执行#重置咕咕牛');
+            await e.reply('『云雀🐦』已存在，请勿重复下载！如有异常请手动执行#重置云雀');
             return;
         }
         try {
@@ -140,21 +140,21 @@ export class MiaoPluginMBT extends plugin {
             });
             await this.CopyFolderRecursive(this.copylocalPath, this.characterPath);
             await this.CopyFolderRecursive(this.ZZZ_Plugin_copylocalPath, this.ZZZ_Plugin_characterPath); 
-            await e.reply(`『咕咕牛』下载完成，载入喵喵中..`);
+            await e.reply(`『云雀🐦』下载完成，载入喵喵中..`);
             fs.mkdirSync(this.GuPath, { recursive: true });
             this.CopyFolderRecursive(path.join(this.localPath,'GuGuNiu-Gallery'), this.GuPath);
             setTimeout(async () => {
-                return e.reply(`『咕咕牛』成功进入喵喵里面！`);
+                return e.reply(`『云雀🐦』成功进入喵喵里面！`);
             }, 20000);
             this.DeleteBanList()
-            const sourceFile = path.join(this.localPath, '咕咕牛图库下载器.js');
-            const destFile = path.join(this.JsPath, '咕咕牛图库下载器.js'); 
+            const sourceFile = path.join(this.localPath, '云雀图库下载器.js');
+            const destFile = path.join(this.JsPath, '云雀图库下载器.js'); 
             await fs.promises.copyFile(sourceFile, destFile);
-            await e.reply(`『咕咕牛』将每隔15天自动更新,包括Js`);
+            await e.reply(`『云雀🐦』将每隔15天自动更新,包括Js`);
         } catch (error) {
-            console.error('下载『咕咕牛🐂』时出现错误:', error);
+            console.error('下载『云雀🐦』时出现错误:', error);
             let DowloadeErrorForward =[]
-            DowloadeErrorForward.push(`下载『咕咕牛🐂』时出现错误:\n ${error}`);
+            DowloadeErrorForward.push(`下载『云雀🐦』时出现错误:\n ${error}`);
             if (error.message.includes('code 128')) {
                 DowloadeErrorForward.push("检查网络连接：确保您的网络连接正常,有时候网络问题可能导致Git无法正常执行操作。");
             }
@@ -165,8 +165,8 @@ export class MiaoPluginMBT extends plugin {
             if (error.message.includes('443')) {
                 updateerrorforward.push("该报错可能是网络问题、被墙或访问被拒绝。");
             }
-            let DownloadErrorGumsg = await common.makeForwardMsg(this.e, DowloadeErrorForward, '『咕咕牛🐂』操作日志');
-            await e.reply('下载『咕咕牛』时出现错误，请查看控制台日志！');
+            let DownloadErrorGumsg = await common.makeForwardMsg(this.e, DowloadeErrorForward, '『云雀🐦』操作日志');
+            await e.reply('下载『云雀🐦』时出现错误，请查看控制台日志！');
             setTimeout(async () => {
                 this.reply(DownloadErrorGumsg);
             }, 2000);
@@ -176,10 +176,10 @@ export class MiaoPluginMBT extends plugin {
     async GallaryUpdate(e) {
         try {
             if (!fs.existsSync(this.localPath)) {
-                 await e.reply('『咕咕牛🐂』未下载！', true);
+                 await e.reply('『云雀🐦』未下载！', true);
                 return true;
             }
-            await e.reply('『咕咕牛🐂』开始更新了', true);
+            await e.reply('『云雀🐦』开始更新了', true);
             const gitPullOutput = await new Promise((resolve, reject) => {
                 exec('git pull', { cwd: this.localPath }, (error, stdout, stderr) => {
                     if (error) {
@@ -190,7 +190,7 @@ export class MiaoPluginMBT extends plugin {
                 });
             });
             if (/Already up[ -]to[ -]date/.test(gitPullOutput)) {
-                await e.reply("『咕咕牛』已经是最新的啦");
+                await e.reply("『云雀🐦』已经是最新的啦");
                 const gitLog = await new Promise((resolve, reject) => {
                     exec('git log -n 1 --date=format:"[%m-%d %H:%M:%S]" --pretty=format:"%cd %s"', { cwd: this.localPath }, (error, stdout, stderr) => {
                         if (error) {
@@ -212,7 +212,7 @@ export class MiaoPluginMBT extends plugin {
                     });
                 });
                 const forwardMsg = [ `最近的更新记录：\n${gitLog}` ];
-                const forwardMsgFormatted = await common.makeForwardMsg(this.e, forwardMsg, '『咕咕牛🐂』更新成功');
+                const forwardMsgFormatted = await common.makeForwardMsg(this.e, forwardMsg, '『云雀🐦』更新成功');
                 await this.reply(forwardMsgFormatted);
                 await this.DeleteFilesWithGuKeyword();
                 await new Promise((resolve, reject) => {
@@ -241,8 +241,8 @@ export class MiaoPluginMBT extends plugin {
                 const destFile = path.join(this.GuPath, 'help.png');
                 await fs.promises.copyFile(sourceFile, destFile);
 
-                const sourceJSFile = path.join(this.localPath, '咕咕牛图库下载器.js');
-                const destJSFile = path.join(this.JsPath, '咕咕牛图库下载器.js');
+                const sourceJSFile = path.join(this.localPath, '云雀图库下载器.js');
+                const destJSFile = path.join(this.JsPath, '云雀图库下载器.js');
                 await fs.promises.copyFile(sourceJSFile, destJSFile);
                 
                 if (galleryConfig && galleryConfig['Px18img-type'] === 0) {
@@ -258,11 +258,11 @@ export class MiaoPluginMBT extends plugin {
                 this.DeleteBanList()
             }
         } catch (error) {
-            console.error('更新『咕咕牛🐂』时出现错误:', error);
-            let updateerrorforward = [`更新『咕咕牛🐂』时出现错误:\n${error.message}`];  
+            console.error('更新『云雀🐦』时出现错误:', error);
+            let updateerrorforward = [`更新『云雀🐦』时出现错误:\n${error.message}`];  
             if (error.message.includes('code 128')) {
                 updateerrorforward.push("检查网络连接：确保您的网络连接正常，有时候网络问题可能导致 Git 无法正常执行操作。");
-                updateerrorforward.push("也可能出现合并失败，可以尝试重置咕咕牛");
+                updateerrorforward.push("也可能出现合并失败，可以尝试重置云雀");
             }
             if (error.message.includes('code 1')) {
                 updateerrorforward.push("该报错是本地与仓库文件冲突，请手动重置咕咕牛后再尝试下载。");
@@ -274,8 +274,8 @@ export class MiaoPluginMBT extends plugin {
             if (error.message.includes('443')) {
                 updateerrorforward.push("该报错可能是网络问题、被墙或访问被拒绝。");
             }
-            let updaterrormsg = await common.makeForwardMsg(this.e, updateerrorforward, '『咕咕牛🐂』更新失败');
-            await this.reply('更新『咕咕牛』时出现错误，请查看日志！');
+            let updaterrormsg = await common.makeForwardMsg(this.e, updateerrorforward, '『云雀🐦』更新失败');
+            await this.reply('更新『云雀🐦』时出现错误，请查看日志！');
             setTimeout(async () => {
                 await this.reply(updaterrormsg);
              }, 2000);
@@ -361,7 +361,7 @@ export class MiaoPluginMBT extends plugin {
         return true;
     }
     
-    async CC(e) {e.reply("请使用#重置咕咕牛",true)}
+    async CC(e) {e.reply("请使用#重置云雀",true)}
 
     async BanRolelist(e) {
         const banListPath = path.join(this.GuPath, 'banlist.txt');
@@ -394,7 +394,7 @@ export class MiaoPluginMBT extends plugin {
 
     async FindRoleSplash(e) {
         if (!fs.existsSync(this.localPath)) {
-            await e.reply('『咕咕牛🐂』未下载！', true);
+            await e.reply('『云雀🐦』未下载！', true);
             return true;
         }
     
@@ -476,18 +476,18 @@ export class MiaoPluginMBT extends plugin {
         const galleryConfigContent = fs.readFileSync(galleryConfigPath, 'utf8');
         const galleryConfig = yaml.parse(galleryConfigContent);
 
-        if (e.msg == '#净化咕咕牛') {
+        if (e.msg == '#净化云雀') {
 
-             e.reply("『咕咕牛』封禁高危面板图,净化无法解除需要你手动修改配置文件,下次更新依旧会延续净化,十分建议呢用#ban封禁",true)
+             e.reply("『云雀🐦』封禁高危面板图,净化无法解除需要你手动修改配置文件,下次更新依旧会延续净化,十分建议呢用#ban封禁",true)
              setTimeout(async () => {
-                    e.reply("输入#确认净化咕咕牛,进行下一步")               
+                    e.reply("输入#确认净化云雀,进行下一步")               
              }, 3000);
 
-            }else if (e.msg == '#确认净化咕咕牛') {
+            }else if (e.msg == '#确认净化云雀') {
                 
                 if (galleryConfig && galleryConfig['Px18img-type'] === 1 ) {
 
-                await e.reply("好的,开始净化咕咕牛",true)
+                await e.reply("好的,开始净化云雀🐦",true)
                 const banListPath = path.join(this.GuPath, 'banlist.txt');
                 if (!fs.existsSync(banListPath)) {
                     fs.writeFileSync(banListPath, '', 'utf8');
@@ -518,7 +518,7 @@ export class MiaoPluginMBT extends plugin {
     }
 
     async GuGuNiu(e) {
-            await e.reply("🐂");
+            await e.reply("🐦");
             const stats = await fs.promises.stat(this.localPath);
             const creationTime = stats.birthtime.toISOString();
             await e.reply(`图库安装时间: ${creationTime}`);
@@ -533,7 +533,7 @@ export class MiaoPluginMBT extends plugin {
             });
     
             const uplogforwardMsg = [`最近的更新记录：\n${gitLog}`];
-            const forwardMsgFormatted = await common.makeForwardMsg(this.e, uplogforwardMsg, '『咕咕牛🐂』日志');
+            const forwardMsgFormatted = await common.makeForwardMsg(this.e, uplogforwardMsg, '『云雀🐦』日志');
             await e.reply(forwardMsgFormatted);
     }
     
@@ -541,15 +541,15 @@ export class MiaoPluginMBT extends plugin {
         const galleryConfigPath = path.join(this.GuPath, 'GalleryConfig.yaml');
         const galleryConfigContent = fs.readFileSync(galleryConfigPath, 'utf8');
         const galleryConfig = yaml.parse(galleryConfigContent);
-        if (e.msg == '#启用咕咕牛') {
+        if (e.msg == '#启用云雀') {
             if (!fs.existsSync(this.localPath)) {
-                await e.reply('『咕咕牛🐂』未下载！', true);
+                await e.reply('『云雀🐦』未下载！', true);
                 return;
              }
-                await e.reply('『咕咕牛🐂』启用中,请稍后...',true);
+                await e.reply('『云雀🐦』启用中,请稍后...',true);
                 await this.CopyFolderRecursive(this.copylocalPath, this.characterPath);
                 await this.CopyFolderRecursive(this.ZZZ_Plugin_copylocalPath, this.ZZZ_Plugin_characterPath);
-                await e.reply('『咕咕牛』重新进入喵喵里面！');
+                await e.reply('『云雀🐦』重新进入喵喵里面！');
                 setTimeout(async () => {
                     this.DeleteBanList()
                 }, 2000);
@@ -558,10 +558,10 @@ export class MiaoPluginMBT extends plugin {
                 const newGalleryConfigContent = yaml.stringify(galleryConfig);
                 fs.writeFileSync(galleryConfigPath, newGalleryConfigContent, 'utf8');
 
-        }else if (e.msg == '#禁用咕咕牛') {
-                await e.reply('『咕咕牛🐂』禁用中,请稍后...',true);
+        }else if (e.msg == '#禁用云雀') {
+                await e.reply('『云雀🐦』禁用中,请稍后...',true);
                 await this.DeleteFilesWithGuKeyword();
-                await e.reply('『咕咕牛』已离开喵喵');
+                await e.reply('『云雀🐦』已离开喵喵');
 
                 galleryConfig['GGOP'] = 0;
                 const newGalleryConfigContent = yaml.stringify(galleryConfig);
@@ -570,18 +570,18 @@ export class MiaoPluginMBT extends plugin {
     }
 
     async DeleteGallary(e){
-        await e.reply('『咕咕牛🐂』完全删除中,请稍后.....',true);
+        await e.reply('『云雀🐦』完全删除中,请稍后.....',true);
         await this.DeleteFilesWithGuKeyword();
         if (!fs.existsSync(this.localPath)) {
-            return e.reply('『咕咕牛』已离开你的崽崽了！');
+            return e.reply('『云雀🐦』已离开你的崽崽了！');
         }
         await fs.promises.rm(this.localPath, { recursive: true });
-        console.log('『咕咕牛🐂』图库删除成功！');
-        return e.reply('『咕咕牛』已离开你的崽崽了！！');
+        console.log('『云雀🐦』图库删除成功！');
+        return e.reply('『云雀🐦』已离开你的崽崽了！！');
     }
 
     async executeTask(){
-        logger.info("[『咕咕牛🐂』定时更新任务]：开始执行")
+        logger.info("[『云雀🐦』定时更新任务]：开始执行")
         const gitPullOutput = await new Promise((resolve, reject) => {
             exec('git pull', { cwd: this.localPath }, (error, stdout, stderr) => {
                 if (error) {
@@ -592,7 +592,7 @@ export class MiaoPluginMBT extends plugin {
             });
         });
         if (/Already up[ -]to[ -]date/.test(gitPullOutput)) {
-            logger.info("[『咕咕牛🐂』定时更新任务]：暂无更新内容")
+            logger.info("[『云雀🐦』定时更新任务]：暂无更新内容")
         }else{
                 await this.CopyFolderRecursive(this.copylocalPath, this.characterPath);
                 await this.CopyFolderRecursive(this.ZZZ_Plugin_copylocalPath, this.ZZZ_Plugin_characterPath);
@@ -602,12 +602,12 @@ export class MiaoPluginMBT extends plugin {
                 const destFile = path.join(this.GuPath, 'help.png');
                 await fs.promises.copyFile(sourceFile, destFile);
 
-                const sourceJSFile = path.join(this.localPath, '咕咕牛图库下载器.js');
-                const destJSFile = path.join(this.JsPath, '咕咕牛图库下载器.js');
+                const sourceJSFile = path.join(this.localPath, '云雀图库下载器.js');
+                const destJSFile = path.join(this.JsPath, '云雀图库下载器.js');
                 await fs.promises.copyFile(sourceJSFile, destJSFile);
                 
                 this.DeleteBanList();
-                return logger.info("[『咕咕牛🐂』定时更新任务]：执行完毕")
+                return logger.info("[『云雀🐦』定时更新任务]：执行完毕")
             }
         }
     
@@ -615,18 +615,18 @@ export class MiaoPluginMBT extends plugin {
     async RestartGuGuNiu(e) {
         try { 
             if (!fs.existsSync(this.localPath)) {
-                await e.reply('『咕咕牛🐂』未下载！', true);
+                await e.reply('『云雀🐦』未下载！', true);
                 return true;
             }
             await fs.promises.rm(this.localPath, { recursive: true });
-            console.log('『咕咕牛🐂』重置成功！');
-            return e.reply('『咕咕牛🐂』重置成功！');
+            console.log('『云雀🐦』重置成功！');
+            return e.reply('『云雀🐦』重置成功！');
         } catch (error) {
-            console.error('重置『咕咕牛🐂』时出现错误:', error);
+            console.error('重置『云雀🐦』时出现错误:', error);
             let rerrforward = [];
-            rerrforward.push(`重置『咕咕牛🐂』时出现错误:\n ${error.message}`);
-            let restarterror = await common.makeForwardMsg(this.e, rerrforward, '『咕咕牛🐂』重置失败');
-            this.reply('『咕咕牛🐂』重置失败，请查看控制台日志！');
+            rerrforward.push(`重置『云雀🐦』时出现错误:\n ${error.message}`);
+            let restarterror = await common.makeForwardMsg(this.e, rerrforward, '『云雀🐦』重置失败');
+            this.reply('『云雀🐦』重置失败，请查看控制台日志！');
             setTimeout(async () => {
                 this.reply(restarterror);
             }, 2000);
@@ -641,7 +641,7 @@ export class MiaoPluginMBT extends plugin {
         ].map(folder => path.join(this.localPath, folder));
     
         if (!fs.existsSync(this.localPath)) {
-            await e.reply('『咕咕牛🐂』未下载！', true);
+            await e.reply('『云雀🐦』未下载！', true);
             return true;
         }
     
@@ -682,13 +682,13 @@ export class MiaoPluginMBT extends plugin {
         const gitSize = await this.getFolderSize(gitPath);
         const gitAllSize = formatBytes(gitSize);
         const MBTSize = formatBytes(gitSize + totalSize);
-        let checkmessage = `----『咕咕牛🐂』----\n角色数量：${totalCharacterCount}名\n图片数量：${totalPanelImageCount}张\n图库容量：${formattedTotalSize}\nGit缓存容量：${gitAllSize}\n咕咕牛图库占用：${MBTSize}`;
+        let checkmessage = `----『云雀🐦』----\n角色数量：${totalCharacterCount}名\n图片数量：${totalPanelImageCount}张\n图库容量：${formattedTotalSize}\nGit缓存容量：${gitAllSize}\n咕咕牛图库占用：${MBTSize}`;
         RoleNumMessage = CheckRoleforward.join('\n');
     
         await Promise.all([
             e.reply(checkmessage),
             (async () => {
-                const msg = await common.makeForwardMsg(this.e, RoleNumMessage, '『咕咕牛🐂』图库数量');
+                const msg = await common.makeForwardMsg(this.e, RoleNumMessage, '『云雀🐦』图库数量');
                 await e.reply(msg);
             })()
         ]);
@@ -734,7 +734,7 @@ export class MiaoPluginMBT extends plugin {
             await deleteFilesRecursively(this.characterPath);
             await deleteFilesRecursively(this.ZZZ_Plugin_characterPath);
 
-            console.log('『咕咕牛🐂』封禁列表中的文件已删除');
+            console.log('『云雀🐦』封禁列表中的文件已删除');
         } catch (error) {
             console.error('删除文件时出现错误:', error);
         }
@@ -760,9 +760,9 @@ export class MiaoPluginMBT extends plugin {
                         await Promise.all(deletePromises);
                     }
                 }));
-                console.log('『咕咕牛🐂』图库删除成功');
+                console.log('『云雀🐦』图库删除成功');
             } catch (err) {
-                console.error('『咕咕牛🐂』图库删除失败:', err);
+                console.error('『云雀🐦』图库删除失败:', err);
             }
         }
     }
@@ -914,7 +914,7 @@ const R18_images=[
 ]
 
 console.log(' ')
-console.log('------咕咕牛图库-----')
+console.log('------云雀🐦图库-----')
 console.log(' ')
 console.log('--------541572746--------')
 console.log(' ')
