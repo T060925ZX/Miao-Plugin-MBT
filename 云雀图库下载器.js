@@ -21,7 +21,7 @@ function formatBytes(bytes) {
 export class MiaoPluginMBT extends plugin {
     constructor() {
         super({
-            name: '『云雀🐦』图库管理器 v1.0',
+            name: '『云雀🐦』图库管理器 v2.8',
             dsc: '『云雀🐦』图库管理器',
             event: 'message',
             priority: 1000,
@@ -119,12 +119,12 @@ export class MiaoPluginMBT extends plugin {
         let downloadUrl;
         if (e.msg == '#下载云雀') {
             downloadUrl = this.repositoryUrl;
-        } else if (e.msg == '#代理下载云雀🐦') {
+        } else if (e.msg == '#代理下载云雀') {
             downloadUrl = this.proxy + this.repositoryUrl;
         }
         await e.reply('『云雀🐦』开始下载了', true);
         if (fs.existsSync(this.localPath)) {
-            await e.reply('『云雀🐦』已存在，请勿重复下载！如有异常请手动执行#重置云雀');
+            await e.reply('『云雀』已存在，请勿重复下载！如有异常请手动执行#重置云雀');
             return;
         }
         try {
@@ -140,17 +140,17 @@ export class MiaoPluginMBT extends plugin {
             });
             await this.CopyFolderRecursive(this.copylocalPath, this.characterPath);
             await this.CopyFolderRecursive(this.ZZZ_Plugin_copylocalPath, this.ZZZ_Plugin_characterPath); 
-            await e.reply(`『云雀🐦』下载完成，载入喵喵中..`);
+            await e.reply(`『云雀』下载完成，载入喵喵中..`);
             fs.mkdirSync(this.GuPath, { recursive: true });
             this.CopyFolderRecursive(path.join(this.localPath,'GuGuNiu-Gallery'), this.GuPath);
             setTimeout(async () => {
-                return e.reply(`『云雀🐦』成功进入喵喵里面！`);
+                return e.reply(`『云雀』成功进入喵喵里面！`);
             }, 20000);
             this.DeleteBanList()
             const sourceFile = path.join(this.localPath, '云雀图库下载器.js');
             const destFile = path.join(this.JsPath, '云雀图库下载器.js'); 
             await fs.promises.copyFile(sourceFile, destFile);
-            await e.reply(`『云雀🐦』将每隔15天自动更新,包括Js`);
+            await e.reply(`『云雀』将每隔15天自动更新,包括Js`);
         } catch (error) {
             console.error('下载『云雀🐦』时出现错误:', error);
             let DowloadeErrorForward =[]
@@ -166,7 +166,7 @@ export class MiaoPluginMBT extends plugin {
                 updateerrorforward.push("该报错可能是网络问题、被墙或访问被拒绝。");
             }
             let DownloadErrorGumsg = await common.makeForwardMsg(this.e, DowloadeErrorForward, '『云雀🐦』操作日志');
-            await e.reply('下载『云雀🐦』时出现错误，请查看控制台日志！');
+            await e.reply('下载『云雀』时出现错误，请查看控制台日志！');
             setTimeout(async () => {
                 this.reply(DownloadErrorGumsg);
             }, 2000);
@@ -190,7 +190,7 @@ export class MiaoPluginMBT extends plugin {
                 });
             });
             if (/Already up[ -]to[ -]date/.test(gitPullOutput)) {
-                await e.reply("『云雀🐦』已经是最新的啦");
+                await e.reply("『云雀』已经是最新的啦");
                 const gitLog = await new Promise((resolve, reject) => {
                     exec('git log -n 1 --date=format:"[%m-%d %H:%M:%S]" --pretty=format:"%cd %s"', { cwd: this.localPath }, (error, stdout, stderr) => {
                         if (error) {
@@ -265,7 +265,7 @@ export class MiaoPluginMBT extends plugin {
                 updateerrorforward.push("也可能出现合并失败，可以尝试重置云雀");
             }
             if (error.message.includes('code 1')) {
-                updateerrorforward.push("该报错是本地与仓库文件冲突，请手动重置咕咕牛后再尝试下载。");
+                updateerrorforward.push("该报错是本地与仓库文件冲突，请手动重置云雀后再尝试下载。");
             }
             if (error.message.includes('code 28')) {
                 updateerrorforward.push("试着增加 Git 的 HTTP 缓冲区大小，这样可以帮助处理较大的数据传输在控制台输入以下命令");
@@ -275,7 +275,7 @@ export class MiaoPluginMBT extends plugin {
                 updateerrorforward.push("该报错可能是网络问题、被墙或访问被拒绝。");
             }
             let updaterrormsg = await common.makeForwardMsg(this.e, updateerrorforward, '『云雀🐦』更新失败');
-            await this.reply('更新『云雀🐦』时出现错误，请查看日志！');
+            await this.reply('更新『云雀』时出现错误，请查看日志！');
             setTimeout(async () => {
                 await this.reply(updaterrormsg);
              }, 2000);
@@ -478,7 +478,7 @@ export class MiaoPluginMBT extends plugin {
 
         if (e.msg == '#净化云雀') {
 
-             e.reply("『云雀🐦』封禁高危面板图,净化无法解除需要你手动修改配置文件,下次更新依旧会延续净化,十分建议呢用#ban封禁",true)
+             e.reply("『云雀』封禁高危面板图,净化无法解除需要你手动修改配置文件,下次更新依旧会延续净化,十分建议呢用#ban封禁",true)
              setTimeout(async () => {
                     e.reply("输入#确认净化云雀,进行下一步")               
              }, 3000);
@@ -487,7 +487,7 @@ export class MiaoPluginMBT extends plugin {
                 
                 if (galleryConfig && galleryConfig['Px18img-type'] === 1 ) {
 
-                await e.reply("好的,开始净化云雀🐦",true)
+                await e.reply("好的,开始净化云雀",true)
                 const banListPath = path.join(this.GuPath, 'banlist.txt');
                 if (!fs.existsSync(banListPath)) {
                     fs.writeFileSync(banListPath, '', 'utf8');
@@ -518,7 +518,7 @@ export class MiaoPluginMBT extends plugin {
     }
 
     async GuGuNiu(e) {
-            await e.reply("🐦");
+            await e.reply("🐂");
             const stats = await fs.promises.stat(this.localPath);
             const creationTime = stats.birthtime.toISOString();
             await e.reply(`图库安装时间: ${creationTime}`);
@@ -549,7 +549,7 @@ export class MiaoPluginMBT extends plugin {
                 await e.reply('『云雀🐦』启用中,请稍后...',true);
                 await this.CopyFolderRecursive(this.copylocalPath, this.characterPath);
                 await this.CopyFolderRecursive(this.ZZZ_Plugin_copylocalPath, this.ZZZ_Plugin_characterPath);
-                await e.reply('『云雀🐦』重新进入喵喵里面！');
+                await e.reply('『云雀』重新进入喵喵里面！');
                 setTimeout(async () => {
                     this.DeleteBanList()
                 }, 2000);
@@ -561,7 +561,7 @@ export class MiaoPluginMBT extends plugin {
         }else if (e.msg == '#禁用云雀') {
                 await e.reply('『云雀🐦』禁用中,请稍后...',true);
                 await this.DeleteFilesWithGuKeyword();
-                await e.reply('『云雀🐦』已离开喵喵');
+                await e.reply('『云雀』已离开喵喵');
 
                 galleryConfig['GGOP'] = 0;
                 const newGalleryConfigContent = yaml.stringify(galleryConfig);
@@ -573,11 +573,11 @@ export class MiaoPluginMBT extends plugin {
         await e.reply('『云雀🐦』完全删除中,请稍后.....',true);
         await this.DeleteFilesWithGuKeyword();
         if (!fs.existsSync(this.localPath)) {
-            return e.reply('『云雀🐦』已离开你的崽崽了！');
+            return e.reply('『云雀』已离开你的崽崽了！');
         }
         await fs.promises.rm(this.localPath, { recursive: true });
         console.log('『云雀🐦』图库删除成功！');
-        return e.reply('『云雀🐦』已离开你的崽崽了！！');
+        return e.reply('『云雀』已离开你的崽崽了！！');
     }
 
     async executeTask(){
@@ -682,7 +682,7 @@ export class MiaoPluginMBT extends plugin {
         const gitSize = await this.getFolderSize(gitPath);
         const gitAllSize = formatBytes(gitSize);
         const MBTSize = formatBytes(gitSize + totalSize);
-        let checkmessage = `----『云雀🐦』----\n角色数量：${totalCharacterCount}名\n图片数量：${totalPanelImageCount}张\n图库容量：${formattedTotalSize}\nGit缓存容量：${gitAllSize}\n咕咕牛图库占用：${MBTSize}`;
+        let checkmessage = `----『云雀🐦』----\n角色数量：${totalCharacterCount}名\n图片数量：${totalPanelImageCount}张\n图库容量：${formattedTotalSize}\nGit缓存容量：${gitAllSize}\n云雀图库占用：${MBTSize}`;
         RoleNumMessage = CheckRoleforward.join('\n');
     
         await Promise.all([
@@ -712,4 +712,203 @@ export class MiaoPluginMBT extends plugin {
         const banListPath = path.join(this.GuPath, 'banlist.txt');
     
         try {
+            const banListContent = await fs.promises.readFile(banListPath, 'utf8');
+            const filesToDelete = banListContent.split(';').map(item => item.trim()).filter(item => item !== '');
     
+            const deleteFilesRecursively = async (directory) => {
+                const files = await fs.promises.readdir(directory);
+                for (const file of files) {
+                    const filePath = path.join(directory, file);
+                    const stat = await fs.promises.stat(filePath);
+                    if (stat.isDirectory()) {
+                        await deleteFilesRecursively(filePath);
+                    } else {
+                        const fileName = path.basename(filePath);
+                        if (filesToDelete.includes(fileName)) {
+                            await fs.promises.unlink(filePath);
+                     //------刷屏点----/ console.log(`${fileName} 已删除`);
+                        }
+                    }
+                }
+            }
+            await deleteFilesRecursively(this.characterPath);
+            await deleteFilesRecursively(this.ZZZ_Plugin_characterPath);
+
+            console.log('『云雀🐦』封禁列表中的文件已删除');
+        } catch (error) {
+            console.error('删除文件时出现错误:', error);
+        }
+    }
+    async DeleteFilesWithGuKeyword() {
+        const ToCheck = [this.characterPath, this.ZZZ_Plugin_characterPath];
+        for (const normalCharacterPath of ToCheck) {
+            try {
+                const folders = await fs.promises.readdir(normalCharacterPath);
+                await Promise.all(folders.map(async (folder) => {
+                    const folderPath = path.join(normalCharacterPath, folder);
+                    const stats = await fs.promises.lstat(folderPath);
+                    if (stats.isDirectory()) {
+                        const files = await fs.promises.readdir(folderPath);
+    
+                        const deletePromises = files.map(async (file) => {
+                            const filePath = path.join(folderPath, file);
+                            const fileStats = await fs.promises.lstat(filePath);
+                            if (fileStats.isFile() && file.includes('Gu') && !file.endsWith('.db')) {
+                                await fs.promises.unlink(filePath);
+                            }
+                        });
+                        await Promise.all(deletePromises);
+                    }
+                }));
+                console.log('『云雀🐦』图库删除成功');
+            } catch (err) {
+                console.error('『云雀🐦』图库删除失败:', err);
+            }
+        }
+    }
+    
+    
+    async CopySplashWebp(sourceDir, targetDir) {
+        const folders = await fs.promises.readdir(sourceDir, { withFileTypes: true });
+        for (const folder of folders) {
+            if (!folder.isDirectory() || folder.name === 'common') continue;
+            const folderPath = path.join(sourceDir, folder.name);
+            const splashPath = path.join(folderPath, 'imgs', 'splash.webp');
+            const targetFolderPath = path.join(targetDir, folder.name);
+            const targetSplashPath = path.join(targetFolderPath, 'Gusplash.webp');
+            await fs.promises.mkdir(targetFolderPath, { recursive: true });
+            await fs.promises.copyFile(splashPath, targetSplashPath);
+           //------刷屏点----/console.log(`已复制 ${splashPath} 到 ${targetSplashPath}`);
+        }
+    }
+    
+    async DeleteGuSplashWebp(directory) {
+        const entries = await fs.promises.readdir(directory, { withFileTypes: true });
+        for (const entry of entries) {
+            const entryPath = path.join(directory, entry.name);
+            if (entry.isDirectory()) {
+                await this.DeleteGuSplashWebp(entryPath);
+            } else if (entry.isFile() && entry.name === 'Gusplash.webp') {
+                await fs.promises.unlink(entryPath);
+               //------刷屏点----/console.log(`已删除 ${entryPath}`);
+            }
+        }
+    }
+
+    async getFolderSize(folderPath) {
+        let totalSize = 0;
+        const files = await fs.promises.readdir(folderPath);
+        for (const file of files) {
+            const filePath = path.join(folderPath, file);
+            const stats = await fs.promises.stat(filePath);
+            if (stats.isDirectory()) {
+                totalSize += await this.getFolderSize(filePath); 
+            } else {
+                totalSize += stats.size;
+            }
+        }
+        return totalSize;
+    }
+
+    async CopyFolderRecursive(source, target) {
+        const targetExists = await fs.promises.access(target)
+            .then(() => true)
+            .catch(() => false);
+    
+        if (!targetExists) {
+            await fs.promises.mkdir(target, { recursive: true });
+        }
+            const files = await fs.promises.readdir(source);
+            await Promise.all(files.map(async (file) => {
+            const curSource = path.join(source, file);
+            const curDest = path.join(target, file);
+            const stat = await fs.promises.lstat(curSource);
+    
+            if (stat.isDirectory()) {
+                await this.CopyFolderRecursive(curSource, curDest);
+            } else {
+                await fs.promises.copyFile(curSource, curDest);
+               //------刷屏点----/ console.log(`已复制文件: ${curSource} -> ${curDest}`);
+            }
+        }));
+       //------刷屏点----/ console.log(`文件夹 ${source} 复制到 ${target} 完成`);
+    }
+
+    getMainRoleName(roleName) {
+        let aliasSR;
+        const aliasSRFilePath = path.resolve(this.SRaliasPath, 'alias.js');
+        const aliasSRContent = fs.readFileSync(aliasSRFilePath, 'utf-8');
+        const aliasRegexSR = /{[^{}]*}/;
+        const aliasJSONSR = aliasSRContent.match(aliasRegexSR)[0];
+        aliasSR = eval('(' + aliasJSONSR + ')');
+
+        let aliasGS;
+        const aliasGSFilePath = path.resolve(this.GSaliasPath, 'alias.js');
+        const aliasGSContent = fs.readFileSync(aliasGSFilePath, 'utf-8');
+        const aliasRegexGS = /{[^{}]*}/;
+        const aliasJSONGS = aliasGSContent.match(aliasRegexGS)[0];
+        aliasGS = eval('(' + aliasJSONGS + ')');
+
+        let aliasZZZ;
+        const ZZZFilePath = path.resolve(this.ZZZ_Plugin_ZZZaliasPath, 'alias.yaml'); 
+        const ZZZContent = fs.readFileSync(ZZZFilePath, 'utf-8');
+        aliasZZZ = yaml.parse(ZZZContent);
+
+        let mainNameSR = Object.keys(aliasSR).find(main => {
+            const aliases = aliasSR[main].split(',');
+            return aliases.includes(roleName);
+        });
+
+        let mainNameGS = Object.keys(aliasGS).find(main => {
+            const aliases = aliasGS[main].split(',');
+            return aliases.includes(roleName);
+        });
+
+        let BTP_mainNameZZZ = Object.keys(aliasZZZ).find(main => {
+            const aliases = aliasZZZ[main];
+            return aliases.includes(roleName); 
+        });
+
+        if (mainNameSR) {
+            return mainNameSR.trim();
+        } else if (mainNameGS) {
+            return mainNameGS.trim();
+        } else if (BTP_mainNameZZZ) {
+            return BTP_mainNameZZZ.trim();
+        } 
+        return roleName;
+    }
+
+      
+}
+
+const R18_images=[
+
+//-------------------GS-------------------//
+"安柏Gu3","安柏Gu10","八重神子Gu14","芭芭拉Gu4","芭芭拉Gu5","芭芭拉Gu11","芭芭拉Gu14","白术Gu8","北斗Gu2","北斗Gu3",
+"北斗Gu4","北斗Gu6","迪希雅Gu8","迪希雅Gu9","珐露珊Gu1","甘雨Gu1","甘雨Gu4","甘雨Gu8","甘雨Gu13","甘雨Gu14","甘雨Gu22",
+"甘雨Gu27","甘雨Gu26","甘雨Gu28","胡桃Gu14","胡桃Gu32","胡桃Gu31","胡桃Gu35","胡桃Gu47","胡桃Gu47","胡桃Gu49","久岐忍Gu6",
+"久岐忍Gu7","久岐忍Gu11","久岐忍Gu10","坎蒂丝Gu1","坎蒂丝Gu4","坎蒂丝Gu6","克洛琳德Gu5","克洛琳德Gu6","刻晴Gu1","刻晴Gu3",
+"刻晴Gu5","刻晴Gu15","刻晴Gu17","刻晴Gu19","刻晴Gu18","刻晴Gu20","刻晴Gu24","刻晴Gu26","雷电将军Gu1","雷电将军Gu11","雷电将军Gu14",
+"雷电将军Gu33","雷电将军Gu34","雷电将军Gu39","雷电将军Gu45","丽莎Gu1","丽莎Gu2","琳尼特Gu3","琳尼特Gu5","琳尼特Gu6","琳尼特Gu7",
+"琳尼特Gu13","琳尼特Gu16","莫娜Gu2","莫娜Gu12","莫娜Gu9","纳西妲Gu23","纳西妲Gu33","娜维娅Gu13","妮露Gu1","妮露Gu4","妮露Gu5",
+"妮露Gu6","妮露Gu16","妮露Gu19","妮露Gu20","妮露Gu22","妮露Gu23","妮露Gu27","妮露Gu28","妮露Gu29","妮露Gu10","妮露Gu31","妮露Gu32",
+"妮露Gu35","诺艾尔Gu1","诺艾尔Gu12","诺艾尔Gu13","琴Gu4","珊瑚宫心海Gu12","珊瑚宫心海Gu34","珊瑚宫心海Gu36","珊瑚宫心海Gu40",
+"申鹤Gu1","申鹤Gu3","申鹤Gu4","申鹤Gu8","申鹤Gu9","申鹤Gu10","神里绫华Gu14","神里绫华Gu23","神里绫华Gu17","五郎Gu6",
+"希格雯Gu13","希格雯Gu10","夏沃蕾Gu1","夏沃蕾Gu3","闲云Gu7","香菱Gu1","夜兰Gu7","夜兰Gu11","夜兰Gu13","夜兰Gu25","夜兰Gu26",
+"夜兰Gu27","夜兰Gu28","夜兰Gu29","夜兰Gu12","荧Gu1","荧Gu2","荧Gu7","荧Gu11","荧Gu18","荧Gu20","荧Gu21","荧Gu14","优菈Gu7",
+"优菈Gu12","优菈Gu13","妮露Gu33",
+//-------------------SR-------------------//
+"布洛妮娅Gu1","布洛妮娅Gu5","丹恒Gu2","符玄Gu1","黑天鹅Gu1","花火Gu1","花火Gu8","花火Gu21","花火Gu28","花火Gu29","花火Gu35",
+"花火Gu48","花火Gu49","黄泉Gu2","藿藿Gu8","镜流Gu2","镜流Gu12","镜流Gu8","卡芙卡Gu2","卡芙卡Gu8","克拉拉Gu4","流萤Gu20","流萤Gu22",
+"流萤Gu24","流萤Gu27","流萤Gu28","流萤Gu30","流萤Gu32","流萤Gu34","娜塔莎Gu2","青雀Gu12","青雀Gu15","青雀Gu16","阮梅Gu12","阮梅Gu16",
+"阮梅Gu17","三月七Gu11","三月七Gu9","素裳Gu1","素裳Gu5","停云Gu5","托帕Gu2","托帕Gu4","托帕Gu5","托帕Gu7","托帕Gu14","托帕Gu15",
+"星Gu10","星Gu3","星Gu5","雪衣Gu2","驭空Gu3",
+
+//-------------------ZZZ-------------------//
+
+//-------------------娘化-------------------//
+"杰帕德Gu1","流浪者Gu4","魈Gu12","真理医生Gu4"
+
+
+]
