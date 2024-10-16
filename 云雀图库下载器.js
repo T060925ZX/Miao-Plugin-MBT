@@ -31,7 +31,7 @@ export class MiaoPluginMBT extends plugin {
                     fnc: 'GallaryDownload'
                 },
                 {
-                    reg: /^#(强制)?更新云雀$/,
+                    reg: /^#(强制)?(更新云雀|云雀更新)$/,
                     fnc: 'GallaryUpdate'
                 },
                 {
