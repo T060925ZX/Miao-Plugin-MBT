@@ -913,10 +913,10 @@ const R18_images=[
 
 ]
 
-console.log('┏━━━━━━━━━━━━━━━━┓')
-console.log('┣ 云雀图库(Skylark-Gallery)┫')
-console.log('┃                                              ┫')
-console.log('┣━━━━━541572746━━━━┫')
-console.log('┃                                              ┫')
-console.log('┣━━━━━ 欢迎加群━━━━━┫')
-console.log('┗━━━━━━━━━━━━━━━━┛')
+console.log('┃')
+console.log('┣ 云雀图库(Skylark-Gallery)')
+console.log('┃')
+console.log('┣541572746')
+console.log('┃')
+console.log('┣欢迎加群')
+console.log('┃')
