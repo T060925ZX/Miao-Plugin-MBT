@@ -518,7 +518,7 @@ export class MiaoPluginMBT extends plugin {
     }
 
     async GuGuNiu(e) {
-            await e.reply("🐂");
+            await e.reply("🐦");
             const stats = await fs.promises.stat(this.localPath);
             const creationTime = stats.birthtime.toISOString();
             await e.reply(`图库安装时间: ${creationTime}`);
