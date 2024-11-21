@@ -6,7 +6,7 @@ import common from '../../lib/common/common.js';
 import yaml from 'yaml'
 
 
-//        『云雀🐦』图库管理器 v2.8
+//        『云雀🐦』图库管理器 v2.9
 //        Github仓库地址：https://github.com/T060925ZX/Miao-Plugin-MBT/
 
 
@@ -21,7 +21,7 @@ function formatBytes(bytes) {
 export class MiaoPluginMBT extends plugin {
     constructor() {
         super({
-            name: '『云雀🐦』图库管理器 v2.8',
+            name: '『云雀🐦』图库管理器 v2.9',
             dsc: '『云雀🐦』图库管理器',
             event: 'message',
             priority: 1000,
@@ -97,7 +97,7 @@ export class MiaoPluginMBT extends plugin {
         }
         const currentFileUrl = import.meta.url;
         const currentFilePath = fileURLToPath(currentFileUrl);
-        this.proxy = 'https://mirror.ghproxy.com/';  
+        this.proxy = 'https://ghp.ci/';  
         this.repositoryUrl = 'https://github.com/T060925ZX/Miao-Plugin-MBT/';
 
         this.localPath = path.resolve(path.dirname(currentFilePath), '../../resources/Miao-Plugin-MBT/');
@@ -284,7 +284,7 @@ export class MiaoPluginMBT extends plugin {
 
     async GuHelp(e) {
         if (!fs.existsSync(this.GuPath)) {
-            e.reply(segment.image("https://s2.loli.net/2024/06/28/LQnN3oPCl1vgXIS.png"))
+            e.reply(segment.image("https://ghp.ci/https://raw.githubusercontent.com/T060925ZX/Miao-Plugin-MBT/refs/heads/main/GuGuNiu-Gallery/help.png"))
             return true;
          }e.reply(segment.image(this.GuPath+'/help.png'))
       }
