@@ -42,8 +42,7 @@
 ### 功能菜单图:
 <details><summary>展开</summary>
 
-图先欠着
-
+![](https://ghp.ci/https://raw.githubusercontent.com/T060925ZX/Miao-Plugin-MBT/refs/heads/main/GuGuNiu-Gallery/help.png)
 
 </details>
 
