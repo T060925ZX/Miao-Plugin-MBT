@@ -17,9 +17,9 @@
 - 请勿用于以『<ins>盈利</ins>』为目的的任何场景,如侵权请联系删除
 
 ## 制图进度
-【[Miao-Plugin](https://github.com/yoimiya-kokomi/miao-plugin)】原神：1.0-5.1
+【[Miao-Plugin](https://github.com/yoimiya-kokomi/miao-plugin)】原神：1.0-5.2
 
-【[Miao-Plugin](https://github.com/yoimiya-kokomi/miao-plugin)】星穹铁道：1.0-2.6
+【[Miao-Plugin](https://github.com/yoimiya-kokomi/miao-plugin)】星穹铁道：1.0-2.7
 
 【[ZZZ-Plugin](https://github.com/ZZZure/ZZZ-Plugin/)】 绝区零：1.1（跑路）
 
