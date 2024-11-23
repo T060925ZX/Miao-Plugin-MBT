@@ -1,4 +1,4 @@
-# 图先欠着
+![](https://ghp.ci/https://raw.githubusercontent.com/T060925ZX/Miao-Plugin-MBT/refs/heads/main/GuGuNiu-Gallery/Skylack.webp)
 
  - ## 云雀插件交流群 [541572746](https://qm.qq.com/q/8RKeSngoO4)
 
