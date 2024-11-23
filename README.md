@@ -1,4 +1,4 @@
-![](https://ghp.ci/https://raw.githubusercontent.com/T060925ZX/Miao-Plugin-MBT/refs/heads/main/GuGuNiu-Gallery/Skylack.webp)
+![](https://ghp.ci/https://raw.githubusercontent.com/T060925ZX/Miao-Plugin-MBT/refs/heads/main/Skylack-Gallery/Skylack.webp)
 
  - ## 云雀插件交流群 [541572746](https://qm.qq.com/q/8RKeSngoO4)
 
@@ -42,7 +42,7 @@
 ### 功能菜单图:
 <details><summary>展开</summary>
 
-![](https://ghp.ci/https://raw.githubusercontent.com/T060925ZX/Miao-Plugin-MBT/refs/heads/main/GuGuNiu-Gallery/help.png)
+![](https://ghp.ci/https://raw.githubusercontent.com/T060925ZX/Miao-Plugin-MBT/refs/heads/main/Skylack-Gallery/help.png)
 
 </details>
 

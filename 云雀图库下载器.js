@@ -112,7 +112,7 @@ export class MiaoPluginMBT extends plugin {
         this.SRaliasPath = path.resolve(path.dirname(currentFilePath), '../../plugins/miao-plugin/resources/meta-sr/character/');
         this.ZZZ_Plugin_ZZZaliasPath = path.resolve(path.dirname(currentFilePath), '../../plugins/ZZZ-Plugin/defset/');  /////////
 
-        this.GuPath = path.resolve(path.dirname(currentFilePath), '../../resources/GuGuNiu-Gallery/');
+        this.GuPath = path.resolve(path.dirname(currentFilePath), '../../resources/Skylack-Gallery/');
         this.JsPath = path.resolve(path.dirname(currentFilePath), '../../plugins/example/');
     }
     async GallaryDownload(e) {
@@ -142,7 +142,7 @@ export class MiaoPluginMBT extends plugin {
             await this.CopyFolderRecursive(this.ZZZ_Plugin_copylocalPath, this.ZZZ_Plugin_characterPath); 
             await e.reply(`『云雀』下载完成，载入喵喵中..`);
             fs.mkdirSync(this.GuPath, { recursive: true });
-            this.CopyFolderRecursive(path.join(this.localPath,'GuGuNiu-Gallery'), this.GuPath);
+            this.CopyFolderRecursive(path.join(this.localPath,'Skylack-Gallery'), this.GuPath);
             setTimeout(async () => {
                 return e.reply(`『云雀』成功进入喵喵里面！`);
             }, 20000);
@@ -237,7 +237,7 @@ export class MiaoPluginMBT extends plugin {
                 }
 
                 fs.mkdirSync(this.GuPath, { recursive: true });
-                const sourceFile = path.join(this.localPath, 'GuGuNiu-Gallery', 'help.png');
+                const sourceFile = path.join(this.localPath, 'Skylack-Gallery', 'help.png');
                 const destFile = path.join(this.GuPath, 'help.png');
                 await fs.promises.copyFile(sourceFile, destFile);
 
@@ -284,7 +284,7 @@ export class MiaoPluginMBT extends plugin {
 
     async GuHelp(e) {
         if (!fs.existsSync(this.GuPath)) {
-            e.reply(segment.image("https://ghp.ci/https://raw.githubusercontent.com/T060925ZX/Miao-Plugin-MBT/refs/heads/main/GuGuNiu-Gallery/help.png"))
+            e.reply(segment.image("https://ghp.ci/https://raw.githubusercontent.com/T060925ZX/Miao-Plugin-MBT/refs/heads/main/Skylack-Gallery/help.png"))
             return true;
          }e.reply(segment.image(this.GuPath+'/help.png'))
       }
@@ -598,7 +598,7 @@ export class MiaoPluginMBT extends plugin {
                 await this.CopyFolderRecursive(this.ZZZ_Plugin_copylocalPath, this.ZZZ_Plugin_characterPath);
 
                 fs.mkdirSync(this.GuPath, { recursive: true });
-                const sourceFile = path.join(this.localPath, 'GuGuNiu-Gallery', 'help.png');
+                const sourceFile = path.join(this.localPath, 'Skylack-Gallery', 'help.png');
                 const destFile = path.join(this.GuPath, 'help.png');
                 await fs.promises.copyFile(sourceFile, destFile);
 
