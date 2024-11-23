@@ -110,7 +110,7 @@ export class MiaoPluginMBT extends plugin {
 
         this.GSaliasPath = path.resolve(path.dirname(currentFilePath), '../../plugins/miao-plugin/resources/meta-gs/character/');
         this.SRaliasPath = path.resolve(path.dirname(currentFilePath), '../../plugins/miao-plugin/resources/meta-sr/character/');
-        this.ZZZ_Plugin_ZZZaliasPath = path.resolve(path.dirname(currentFilePath), '../../plugins/ZZZ-Plugin/defset/');  /////////
+        this.ZZZ_Plugin_ZZZaliasPath = path.resolve(path.dirname(currentFilePath), '../../plugins/ZZZ-Plugin/defSet/');  /////////
 
         this.GuPath = path.resolve(path.dirname(currentFilePath), '../../resources/Skylack-Gallery/');
         this.JsPath = path.resolve(path.dirname(currentFilePath), '../../plugins/example/');
