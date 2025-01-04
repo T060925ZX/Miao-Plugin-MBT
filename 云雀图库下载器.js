@@ -913,10 +913,7 @@ const R18_images=[
 
 ]
 
-console.log('┃')
-console.log('┣ 云雀图库(Skylark-Gallery)')
-console.log('┃')
-console.log('┣541572746')
-console.log('┃')
-console.log('┣欢迎加群')
-console.log('┃')
+logger.mark('=======ε٩(๑> ₃ <)۶з=======')
+logger.mark('云雀图库(Skylark-Gallery)')
+logger.mark('    欢迎加群541572746')
+logger.mark('==========================')
