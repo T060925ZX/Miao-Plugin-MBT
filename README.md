@@ -32,7 +32,7 @@
     curl -o "./plugins/example/云雀图库下载器.js" "https://raw.githubusercontent.com/T060925ZX/Miao-Plugin-MBT/main/云雀图库下载器.js"
 2、mirror源:
 
-    curl -o "./plugins/example/云雀图库下载器.js" "https://ghp.ci/https://raw.githubusercontent.com/T060925ZX/Miao-Plugin-MBT/main/云雀图库下载器.js"
+    curl -o "./plugins/example/云雀图库下载器.js" "https://ghproxy.lyln.us.kg/https://raw.githubusercontent.com/T060925ZX/Miao-Plugin-MBT/main/云雀图库下载器.js"
 3、jsdelivr源:
 
     curl -o "./plugins/example/云雀图库下载器.js" "https://cdn.jsdelivr.net/gh/T060925ZX/Miao-Plugin-MBT@main/云雀图库下载器.js"
