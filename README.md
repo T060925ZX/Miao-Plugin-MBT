@@ -15,7 +15,7 @@
 - 『<ins>彩蛋面板图</ins>』被使用的概率极低,因此本仓库不使用
 - 『<ins>图库管理器Js</ins>』的操作不会影响你的其他面板图和其他图库
 - 请勿用于以『<ins>盈利</ins>』为目的的任何场景,如侵权请联系删除
-- proxy寄了请找@LiuYunLingNai或前往QQ群找3065737952(柳云零奈)进行反馈
+- proxy寄了请找[@LiuYunLingNai](https://github.com/LiuYunLingNai)或前往QQ群找3065737952(柳云零奈)进行反馈
 
 ## 制图进度
 【[Miao-Plugin](https://github.com/yoimiya-kokomi/miao-plugin)】原神：1.0-5.2
