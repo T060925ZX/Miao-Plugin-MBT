@@ -67,8 +67,8 @@ ZZZ-Plugin ：https://github.com/ZZZure/ZZZ-Plugin/
 
 | 名单 | 主要贡献 | 名单  | 主要贡献  |
 |:----: |:----: |:----: |:----: |
-| [@fl12352](https://github.com/fl12352) | 原神面板图 | [@feng-07](https://github.com/feng-07) | 星铁面板图  | [@LiuYunLingNai]([https://github.com/fl12352](https://github.com/LiuYunLingNai)) | proxy |
-
+| [@fl12352](https://github.com/fl12352) | 原神面板图 | [@feng-07](https://github.com/feng-07) | 崩铁面板图 |
+| [@LiuYunLingNai]([https://github.com/fl12352](https://github.com/LiuYunLingNai)) | proxy |
 
 
 >Yunzai交流群 [983299064](https://qm.qq.com/q/ciLUvOjDyw) 
