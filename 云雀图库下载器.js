@@ -24,7 +24,7 @@ export class MiaoPluginMBT extends plugin {
             name: '『云雀🐦』图库管理器 v2.9',
             dsc: '『云雀🐦』图库管理器',
             event: 'message',
-            priority: 1,
+            priority: 5000,
             rule: [
                 {
                     reg: /^#(代理)?下载云雀$/,
