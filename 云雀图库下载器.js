@@ -97,7 +97,7 @@ export class MiaoPluginMBT extends plugin {
         }
         const currentFileUrl = import.meta.url;
         const currentFilePath = fileURLToPath(currentFileUrl);
-        this.proxy = 'https://ghproxy.lyln.us.kg/';  
+        this.proxy = 'https://gh-proxy.ygxz.in/';  
         this.repositoryUrl = 'https://github.com/T060925ZX/Miao-Plugin-MBT/';
 
         this.localPath = path.resolve(path.dirname(currentFilePath), '../../resources/Miao-Plugin-MBT/');
